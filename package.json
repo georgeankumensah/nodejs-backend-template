@@ -1,5 +1,5 @@
 {
-  "name": "enyata-backend-starter",
+  "name": "nodejs-backend-starter",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
@@ -8,7 +8,17 @@
     "dev": "nodemon --exec ts-node ./src/index.ts --mode development",
     "format": "prettier --write \"src/**/*.ts\" \"tests/**/*.ts\"",
     "lint": "eslint \"{src,apps,libs}/**/*.ts\" --fix",
-    "test": "cross-env PROJECT_NODE_ENV=test PROJECT_SECRET=PROJECT mocha -r ts-node/register src/**/*.test.ts --exclude src/config/**/*.ts --timeout 15000 --exit"
+    "test": "cross-env PROJECT_NODE_ENV=test PROJECT_SECRET=PROJECT mocha -r ts-node/register src/**/*.test.ts --exclude src/config/**/*.ts --timeout 15000 --exit",
+    "migrate": "db-migrate --migrations-dir ./migrations",
+    "migrate:up": "npm run migrate up",
+    "migrate:down": "npm run migrate down",
+    "migrate:reset": "npm run migrate reset",
+    "migrate:create": "npm run migrate create",
+    "seed:create": "npm run migrate create:seeds",
+    "seed:up": "npm run migrate up:seeds",
+    "seed:down": "npm run migrate down:seeds",
+    "seed:reset": "npm run migrate reset:seeds",
+    "db:reset": "npm run migrate:reset && npm run migrate:up"
   },
   "keywords": [],
   "author": "",
@@ -26,6 +36,7 @@
     "report-dir": "coverage"
   },
   "dependencies": {
+    "@bitreel/sql-quest": "^0.0.6",
     "@typescript-eslint/eslint-plugin": "^8.14.0",
     "@typescript-eslint/parser": "^8.14.0",
     "app-root-path": "^3.1.0",
@@ -33,6 +44,9 @@
     "chai-http": "5.0.0-alpha1",
     "cors": "^2.8.5",
     "cross-env": "^7.0.3",
+    "db-migrate": "^0.11.14",
+    "db-migrate-pg": "^1.5.2",
+    "deasyncify": "^0.0.4",
     "dotenv": "^16.4.5",
     "eslint": "^9.15.0",
     "express": "^4.21.1",
@@ -42,9 +56,10 @@
     "nyc": "^17.1.0",
     "sinon": "^19.0.2",
     "sinon-chai": "^4.0.0",
-    "winston": "^3.17.0",
-    "winston-daily-rotate-file": "^5.0.0",
-    "winston-papertrail": "^1.0.5"
+    "winston": "^3.10.0",
+    "winston-daily-rotate-file": "^4.7.1",
+    "winston-papertrail": "^1.0.5",
+    "zod": "^3.23.8"
   },
   "devDependencies": {
     "@istanbuljs/nyc-config-typescript": "^1.0.2",

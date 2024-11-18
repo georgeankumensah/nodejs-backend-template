@@ -1,0 +1,20 @@
+{
+    "keep": {
+        "days": true,
+        "amount": 80
+    },
+    "auditLog": "/Users/blaccgeorge/Documents/enyata-backend-starter/logs/.5ceb504fac7fff512f193c0809af1b34dd13ad8b-audit.json",
+    "files": [
+        {
+            "date": 1731944377301,
+            "name": "/Users/blaccgeorge/Documents/enyata-backend-starter/logs/info.2024-11-18-15:11.log",
+            "hash": "e26c48daae0b397ca1ddf6161b05e77923deb8273d144fde0cbc2dd2f73b47b9"
+        },
+        {
+            "date": 1731946484729,
+            "name": "/Users/blaccgeorge/Documents/enyata-backend-starter/logs/info.2024-11-18-16:11.log",
+            "hash": "9de7834a4c0c87e6e58449734b668217f09ca4f44a021fbd4967b0a0c8cdb91f"
+        }
+    ],
+    "hashType": "sha256"
+}
